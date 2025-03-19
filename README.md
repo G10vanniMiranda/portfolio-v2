@@ -7,4 +7,4 @@ npm install react-icons
 ### Imagens do Projeto!
 
 * Mobile
-<img src="/sessao1.png" alt="Preview" />
+<img src="./screens/sessao1.png" alt="Preview" />
