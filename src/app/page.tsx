@@ -10,18 +10,19 @@ export default function Home() {
   return (
     <div className="w-screen h-screen flex flex-col">
 
+      {/* Conteudo Principal */}
       <section className="w-full h-auto flex flex-col items-center g-3">
 
         {/* Header */}
         <div className=" w-full h-24 flex justify-center items-center gap-3">
 
-          <div className="bg-green-500 flex items-center justify-end p-2 gap-3 w-32 h-8 rounded-l-md">
+          <Link href="/" className="bg-green-500 flex items-center justify-end p-2 gap-3 w-32 h-8 rounded-l-md cursor-pointer" >
             <h2>Home</h2>
             <p>|</p>
             <IoIosHome className="text-black" />
-          </div>
+          </Link>
 
-          <div className="bg-green-500 flex items-center justify-start p-2 gap-3 w-32 h-8 rounded-e-md">
+          <div className="bg-green-500 flex items-center justify-start p-2 gap-3 w-32 h-8 rounded-e-md cursor-pointer">
             <AiFillProject className="text-black" />
             <p>|</p>
             <h2>Projetos</h2>
@@ -80,17 +81,20 @@ export default function Home() {
         {/* Contato */}
         <div className="w-96 flex items-center justify-items-start gap-3 pt-8">
 
-          <Link href="https://api.whatsapp.com/send?phone=5569999210459">
-            <div className="bg-green-500 rounded-md p-2 p flex gap-2">
-              Entre em contato --{">"}
-            </div>
-          </Link>
+
+          <div className="bg-green-500 rounded-md p-2 p flex gap-2">
+            Entre em contato --{">"}
+          </div>
 
           <div className="flex gap-2">
-            <FiGithub className="cursor-pointer" />
-            <CiLinkedin className="cursor-pointer" />
-            <FaInstagram className="cursor-pointer" />
-            <FaWhatsapp className="cursor-pointer" />
+
+            <FiGithub />
+            <CiLinkedin />
+            <FaInstagram />
+
+            <Link href="https://api.whatsapp.com/send?phone=5569999210459">
+              <FaWhatsapp />
+            </Link>
           </div>
 
         </div>
