@@ -8,21 +8,21 @@ import { IoIosHome } from "react-icons/io";
 
 export default function Home() {
   return (
-    <div className="w-screen h-screen flex flex-col">
+    <div className="w-screen h-screen flex flex-col p-4 gap-4">
 
       {/* Conteudo Principal */}
       <section className="w-full h-auto flex flex-col items-center g-3">
 
         {/* Header */}
-        <div className=" w-full h-24 flex justify-center items-center gap-3 md:justify-end md:p-10">
+        <div className=" w-full h-24 flex justify-center items-center gap-4 md:justify-end md:p-10">
 
-          <Link href="/" className="bg-green-500 flex items-center justify-end p-2 gap-3 w-32 h-8 rounded-l-md cursor-pointer" >
+          <Link href="/" className="bg-green-500 flex items-center justify-end p-2 gap-3 w-32 h-10 rounded-l-md cursor-pointer" >
             <h2>Home</h2>
             <p>|</p>
             <IoIosHome className="text-black" />
           </Link>
 
-          <div className="bg-green-500 flex items-center justify-start p-2 gap-3 w-32 h-8 rounded-e-md cursor-pointer">
+          <div className="bg-green-500 flex items-center justify-start p-2 gap-3 w-32 h-10 rounded-e-md cursor-pointer">
             <AiFillProject className="text-black" />
             <p>|</p>
             <h2>Projetos</h2>
@@ -30,7 +30,9 @@ export default function Home() {
 
         </div>
 
+        {/* Sobre Mim */}
         <div className="flex flex-col md:flex-row-reverse md:items-center md:gap-40 md:p-20">
+
           {/* Foto de Perfil */}
           <div className="w-full h-[400px] flex justify-center" >
             <Image width={200} height={100} src="/perfil.png" alt="Foto de Perfil" className="w-96 rounded-2xl" />
@@ -102,6 +104,37 @@ export default function Home() {
 
             </div>
           </div>
+
+        </div>
+
+      </section>
+
+      {/* Projetos */}
+      <section className="w-full h-auto flex flex-col items-center justify-center gap-6">
+
+        <h1 className="text-4xl">Projetos em destaque</h1>
+
+        <div className="w-full h-auto flex flex-col gap-2">
+
+          <div className="w-96 h-96 bg-gray-600 rounded-lg"></div>
+
+          <div className="w-full h-auto">
+
+            <div className="flex gap-3">
+
+              <h1>#</h1>
+              <h1>BookWise</h1>
+
+            </div>
+
+            <div></div>
+
+            <div></div>
+
+            <div></div>
+
+          </div>
+
         </div>
 
       </section>
