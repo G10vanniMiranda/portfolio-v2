@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
-body{   
-  color: #fff;
+body{
+  color: #E5E7EB; /* texto claro */
+  background-color: #0D1117; /* background dark principal */
+  overflow-x: hidden; /* evita scroll horizontal */
 }

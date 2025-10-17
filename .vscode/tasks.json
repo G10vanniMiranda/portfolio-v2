@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Install framer-motion",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"install",
+				"framer-motion"
+			],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ScrollProgress from "@/components/ScrollProgress";
+import WhatsFloatingButton from "@/components/WhatsFloatingButton";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -23,9 +23,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`} >
+    <html lang="pt-BR" className="scroll-smooth overflow-x-hidden">
+      <body className={`${inter.variable} antialiased overflow-x-hidden`} >
+        <ScrollProgress />
+        <Header />
+        {/* Spacer to offset fixed header height */}
+        <div aria-hidden className="h-14" />
         {children}
+        <Footer />
+        <WhatsFloatingButton />
       </body>
     </html>
   );
