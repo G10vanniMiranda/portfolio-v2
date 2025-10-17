@@ -1,8 +1,4 @@
-
-### React Icons
-```
-npm install react-icons
-```
+### Projeto atualizado
 
 ### Imagens do Projeto!
 
