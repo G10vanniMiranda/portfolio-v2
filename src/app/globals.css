@@ -5,3 +5,22 @@ body{
   background-color: #0D1117; /* background dark principal */
   overflow-x: hidden; /* evita scroll horizontal */
 }
+
+/* Acessibilidade: foco visível apenas para teclado */
+:where(a, button, [role="button"]) {
+  outline: none;
+}
+:where(a, button, [role="button"]):focus-visible {
+  outline: 2px solid #3B82F6;
+  outline-offset: 2px;
+}
+
+/* Respeitar usuários que preferem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -4,14 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { appearUp, appear, lettersContainer, letter, slow, slowDelayed } from "@/lib/motion";
 import { FaSearch, FaCloud } from "react-icons/fa";
-import dynamic from "next/dynamic";
-import { projects } from "@/lib/projects";
-const ProjectCard = dynamic(() => import("@/components/ProjectCard"), {
-  ssr: false,
-  loading: () => (
-    <div className="h-[280px] rounded-lg border border-[#E5E7EB] bg-[#FFFFFF]/60 animate-pulse" />
-  ),
-});
+import ProjectCard from "@/components/ProjectCard";
 import {
   SiHtml5,
   SiCss3,
@@ -35,7 +28,7 @@ export default function Home() {
 
       {/* Hero */}
       <section id="hero" className="w-full bg-[#F9FAFB] text-[#111827]">
-        <div className="mx-auto w-full max-w-6xl px-4 pt-28 pb-16 md:pt-32 md:pb-24">
+        <div className="mx-auto w-full max-w-6xl px-4 pt-28 pb-20 md:pt-32 md:pb-28">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -51,8 +44,6 @@ export default function Home() {
               height={200}
               className="rounded-full ring-2 ring-neutral-200 shadow-lg object-cover object-center w-36 h-36 md:w-48 md:h-48"
               priority
-              loading="eager"
-              sizes="(max-width: 768px) 144px, 192px"
             />
             <motion.h1
               className="text-3xl md:text-5xl font-semibold tracking-tight max-w-4xl mx-auto whitespace-normal break-words"
@@ -93,7 +84,7 @@ export default function Home() {
 
       {/* Sobre mim */}
       <section id="sobre" className="w-full bg-[#1E1E1E] text-white scroll-mt-24">
-        <div className="mx-auto w-full max-w-6xl px-4 py-14 md:py-24">
+        <div className="mx-auto w-full max-w-6xl px-4 py-16 md:py-24">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -164,7 +155,7 @@ export default function Home() {
 
       {/* Tecnologias */}
       <section id="tecnologias" className="w-full bg-transparent text-white scroll-mt-24">
-        <div className="mx-auto w-full max-w-6xl px-4 py-14 md:py-24">
+        <div className="mx-auto w-full max-w-6xl px-4 py-16 md:py-24">
           <motion.h2
             className="text-2xl md:text-3xl font-semibold tracking-tight mb-8"
             initial="hidden"
@@ -223,7 +214,7 @@ export default function Home() {
 
       {/* Projetos */}
       <section id="projetos" className="w-full bg-transparent text-white scroll-mt-24">
-        <div className="mx-auto w-full max-w-6xl px-4 py-14 md:py-24">
+        <div className="mx-auto w-full max-w-6xl px-4 py-16 md:py-24">
           <motion.h2
             className="text-2xl md:text-3xl font-semibold tracking-tight mb-8"
             initial="hidden"
@@ -244,22 +235,69 @@ export default function Home() {
             transition={slow}
             className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
           >
-            {projects.map((p) => (
+            <>
               <ProjectCard
-                key={p.href}
-                title={p.title}
-                description={p.description}
-                imageSrc={p.imageSrc}
-                href={p.href}
+                title="Advogado Iago Zalenda"
+                description="Projeto desenvolvido com foco em performance e conversão."
+                imageSrc="/adv-iago.jpg"
+                href="https://advogadoiagozalenda.vercel.app/"
               />
-            ))}
+              <ProjectCard
+                title="Mahal Sushi Bar"
+                description="Projeto desenvolvido com foco em performance e conversão."
+                imageSrc="/mahal.jpg"
+                href="https://mahal-sushi-bar.vercel.app/"
+              />
+              <ProjectCard
+                title="Psicóloga Fernanda Tan"
+                description="Projeto desenvolvido com foco em performance e conversão."
+                imageSrc="/psi-fernanda.jpg"
+                href="https://psi-fernanda-tan.vercel.app/"
+              />
+              <ProjectCard
+                title="LDP Restaurante"
+                description="Projeto desenvolvido com foco em performance e conversão."
+                imageSrc="/restaurante.jpg"
+                href="https://ldp-restaurante.vercel.app/"
+              />
+              <ProjectCard
+                title="Petshop Neon Delta"
+                description="Projeto desenvolvido com foco em performance e conversão."
+                imageSrc="/petshop.jpg"
+                href="https://petshop-neon-delta.vercel.app/"
+              />
+              <ProjectCard
+                title="Contabilidadess"
+                description="Projeto desenvolvido com foco em performance e conversão."
+                imageSrc="/ss-cont.jpg"
+                href="https://www.contabilidadess.com.br/"
+              />
+              <ProjectCard
+                title="PDV Next"
+                description="Projeto desenvolvido com foco em performance e conversão."
+                imageSrc="/pdv.jpg"
+                href="https://pdv-next.vercel.app/"
+              />
+              <ProjectCard
+                title="Primeiro Ato"
+                description="Projeto desenvolvido com foco em performance e conversão."
+                imageSrc="/primeiroato.png"
+                href="https://primeiroato.vercel.app/"
+              />
+              <ProjectCard
+                title="Espaço Alfa"
+                description="Projeto desenvolvido com foco em performance e conversão."
+                imageSrc="/logosf.jpg"
+                href="https://espaco-alfa.vercel.app/"
+              />
+            </>
           </motion.div>
         </div>
       </section>
 
       {/* Contato */}
       <section id="contato" className="w-full bg-[#1E1E1E] text-white scroll-mt-24">
-        <div className="mx-auto w-full max-w-6xl px-4 py-14 md:py-24">
+        <div className="mx-auto w-full max-w-6xl px-4 py-16 md:py-24">
           <motion.div
             initial="hidden"
             whileInView="visible"
