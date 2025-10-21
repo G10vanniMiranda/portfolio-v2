@@ -19,7 +19,7 @@ export const projects: Project[] = [
     href: "https://mahal-sushi-bar.vercel.app/",
   },
   {
-    title: "Psicóloga Fernanda Tan",
+    title: "Psicóloga Fernanda",
     description: "Projeto desenvolvido com foco em performance e conversão.",
     imageSrc: "/psi-fernanda.jpg",
     href: "https://psi-fernanda-tan.vercel.app/",
@@ -31,13 +31,13 @@ export const projects: Project[] = [
     href: "https://ldp-restaurante.vercel.app/",
   },
   {
-    title: "Petshop Neon Delta",
+    title: "Petshop",
     description: "Projeto desenvolvido com foco em performance e conversão.",
     imageSrc: "/petshop.jpg",
     href: "https://petshop-neon-delta.vercel.app/",
   },
   {
-    title: "Contabilidadess",
+    title: "SS Contabilidade",
     description: "Projeto desenvolvido com foco em performance e conversão.",
     imageSrc: "/ss-cont.jpg",
     href: "https://www.contabilidadess.com.br/",

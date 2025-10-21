@@ -223,7 +223,9 @@ export default function Home() {
 
       {/* Projetos */}
       <section id="projetos" className="w-full bg-transparent text-white scroll-mt-24">
+
         <div className="mx-auto w-full max-w-6xl px-4 py-14 md:py-24">
+
           <motion.h2
             className="text-2xl md:text-3xl font-semibold tracking-tight mb-8"
             initial="hidden"
@@ -236,6 +238,7 @@ export default function Home() {
               <motion.span key={idx} variants={letter}>{ch}</motion.span>
             ))}
           </motion.h2>
+
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -254,7 +257,9 @@ export default function Home() {
               />
             ))}
           </motion.div>
+
         </div>
+
       </section>
 
       {/* Contato */}

@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Portfólio – Giovanni Miranda",
     description:
       "Desenvolvedor Full Stack. Crio sites, e‑commerces e landing pages de alta performance.",
-    url: "/",
+    url: "https://portfolio-mi7anda.vercel.app/",
     siteName: "Giovanni Miranda",
     images: [
       { url: "/og-cover.jpg", width: 1200, height: 630, alt: "Portfólio – Giovanni Miranda" },
