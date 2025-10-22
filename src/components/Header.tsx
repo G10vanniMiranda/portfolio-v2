@@ -32,7 +32,7 @@ export default function Header() {
 
                 {/* CTA */}
                 <div className="flex items-center gap-3">
-                    <a href="#contato" className="hidden md:inline-flex items-center rounded-md bg-[#3B82F6] px-4 py-2 text-white font-medium hover:bg-[#2563EB] transition-colors">
+                    <a href="#contato" className="hidden md:inline-flex items-center rounded-md bg-[#3B82F6] px-4 py-2 text-white font-medium hover:bg-[#2563EB] transition-colors cta-pulse">
                         Entrar em contato
                     </a>
                     <button
@@ -65,7 +65,7 @@ export default function Header() {
                     <a href="#tecnologias" className="hover:text-[#3B82F6] transition-colors" onClick={() => setOpen(false)}>Tecnologias</a>
                     <a href="#projetos" className="hover:text-[#3B82F6] transition-colors" onClick={() => setOpen(false)}>Projetos</a>
                     <a href="#contato" className="hover:text-[#3B82F6] transition-colors" onClick={() => setOpen(false)}>Contato</a>
-                    <a href="#contato" className="mt-2 inline-flex items-center justify-center rounded-md bg-[#3B82F6] px-4 py-2 text-white font-medium hover:bg-[#2563EB] transition-colors" onClick={() => setOpen(false)}>
+                    <a href="#contato" className="mt-2 inline-flex items-center justify-center rounded-md bg-[#3B82F6] px-4 py-2 text-white font-medium hover:bg-[#2563EB] transition-colors cta-pulse" onClick={() => setOpen(false)}>
                         Entrar em contato
                     </a>
                 </motion.nav>

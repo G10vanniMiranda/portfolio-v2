@@ -55,7 +55,7 @@ export default function ProjectCard({ title, description, imageSrc, href }: Proj
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center rounded-md bg-[#3B82F6] px-4 py-2 text-white text-sm font-medium hover:bg-[#2563EB] transition-colors"
+            className="inline-flex items-center rounded-md bg-[#3B82F6] px-4 py-2 text-white text-sm font-medium hover:bg-[#2563EB] transition-colors cta-pulse"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.6 }}

@@ -1,9 +1,10 @@
 "use client";
 import { FaWhatsapp } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { appear, slow } from "@/lib/motion";
 
 export default function WhatsFloatingButton() {
+    const prefersReduced = useReducedMotion();
     const href =
         "https://api.whatsapp.com/send?phone=5569999210459&text=Olá%20Giovanni!%20Vim%20pelo%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.";
     return (
@@ -18,7 +19,18 @@ export default function WhatsFloatingButton() {
             whileInView="visible"
             viewport={{ once: true, amount: 1 }}
             variants={appear}
-            transition={slow}
+            /* Transition for appear is handled by variants; looping animation sets its own transition */
+            {...(!prefersReduced
+                ? {
+                        animate: { scale: [1, 1.08, 1], y: [0, -6, 0] },
+                        transition: {
+                            duration: 1.8,
+                            ease: "easeInOut",
+                            repeat: Infinity,
+                            repeatDelay: 0.2,
+                        },
+                    }
+                : {})}
         >
             <FaWhatsapp className="text-2xl" />
         </motion.a>

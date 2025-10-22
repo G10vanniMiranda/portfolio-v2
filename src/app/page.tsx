@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { appearUp, appear, lettersContainer, letter, slow, slowDelayed } from "@/lib/motion";
 import { FaSearch, FaCloud } from "react-icons/fa";
 import dynamic from "next/dynamic";
@@ -30,12 +30,33 @@ import {
 } from "react-icons/si";
 
 export default function Home() {
+  const prefersReduced = useReducedMotion();
   return (
     <main className="min-h-screen flex flex-col overflow-x-hidden">
 
       {/* Hero */}
-      <section id="hero" className="w-full bg-[#F9FAFB] text-[#111827]">
-        <div className="mx-auto w-full max-w-6xl px-4 pt-28 pb-16 md:pt-32 md:pb-24">
+      <section id="hero" className="relative w-full bg-[#F9FAFB] text-[#111827] overflow-hidden">
+        {/* Background video with poster fallback */}
+        <div
+          className="absolute inset-0 z-0 pointer-events-none bg-center bg-cover"
+          style={{ backgroundImage: "url(/videos/hero-poster.jpg)" }}
+        >
+          <video
+            className="w-full h-full object-cover"
+            muted
+            playsInline
+            loop
+            autoPlay={!prefersReduced}
+            preload="metadata"
+            poster="/videos/hero-poster.jpg"
+            aria-hidden="true"
+          >
+            <source src="/videos/hero.mp4" type="video/mp4" />
+          </video>
+          {/* Light overlay for readability */}
+          <div className="absolute inset-0 bg-white/20" />
+        </div>
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pt-28 pb-16 md:pt-32 md:pb-24">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -55,7 +76,7 @@ export default function Home() {
               sizes="(max-width: 768px) 144px, 192px"
             />
             <motion.h1
-              className="text-3xl md:text-5xl font-semibold tracking-tight max-w-4xl mx-auto whitespace-normal break-words"
+              className="text-3xl md:text-5xl font-semibold tracking-tight max-w-4xl mx-auto whitespace-normal break-words text-white"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.6 }}
@@ -67,7 +88,7 @@ export default function Home() {
               ))}
             </motion.h1>
             <motion.p
-              className="text-base md:text-lg text-[#6B7280] max-w-2xl"
+              className="text-base md:text-lg text-white max-w-2xl"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.6 }}
@@ -78,7 +99,7 @@ export default function Home() {
             </motion.p>
             <motion.a
               href="#projetos"
-              className="inline-flex items-center rounded-md bg-[#3B82F6] px-6 py-3 text-white font-medium hover:bg-[#2563EB] transition-colors"
+              className="inline-flex items-center rounded-md bg-[#3B82F6] px-6 py-3 text-white font-medium hover:bg-[#2563EB] transition-colors cta-pulse"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.6 }}
@@ -303,7 +324,7 @@ export default function Home() {
                 href="https://api.whatsapp.com/send?phone=5569999210459&text=Olá%20Giovanni!%20Vim%20pelo%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center rounded-md bg-[#3B82F6] px-6 py-3 text-white font-medium hover:bg-[#2563EB] transition-colors"
+                className="inline-flex items-center rounded-md bg-[#3B82F6] px-6 py-3 text-white font-medium hover:bg-[#2563EB] transition-colors cta-pulse"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.6 }}

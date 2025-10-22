@@ -24,3 +24,20 @@ body{
     scroll-behavior: auto !important;
   }
 }
+
+/* CTA pulse/bounce to draw attention */
+@keyframes pulse-bounce {
+  0% { transform: translateY(0) scale(1); }
+  35% { transform: translateY(-3px) scale(1.06); }
+  70% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.cta-pulse {
+  animation: pulse-bounce 1.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-pulse { animation: none; }
+}

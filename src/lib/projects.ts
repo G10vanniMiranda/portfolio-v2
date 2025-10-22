@@ -10,7 +10,7 @@ export const projects: Project[] = [
     title: "Advogado Iago Zalenda",
     description: "Projeto desenvolvido com foco em performance e conversão.",
     imageSrc: "/adv-iago.jpg",
-    href: "https://advogadoiagozalenda.vercel.app/",
+    href: "https://www.zalendaadvogados.com.br/",
   },
   {
     title: "Mahal Sushi Bar",
@@ -41,12 +41,6 @@ export const projects: Project[] = [
     description: "Projeto desenvolvido com foco em performance e conversão.",
     imageSrc: "/ss-cont.jpg",
     href: "https://www.contabilidadess.com.br/",
-  },
-  {
-    title: "PDV Next",
-    description: "Projeto desenvolvido com foco em performance e conversão.",
-    imageSrc: "/pdv.jpg",
-    href: "https://pdv-next.vercel.app/",
   },
   {
     title: "Primeiro Ato",
