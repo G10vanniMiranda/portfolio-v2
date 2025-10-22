@@ -1,7 +1,7 @@
 "use client";
 import { FaWhatsapp } from "react-icons/fa";
 import { motion, useReducedMotion } from "framer-motion";
-import { appear, slow } from "@/lib/motion";
+import { appear } from "@/lib/motion";
 
 export default function WhatsFloatingButton() {
     const prefersReduced = useReducedMotion();

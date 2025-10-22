@@ -10,7 +10,7 @@ export default function Header() {
     return (
         <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-[#1F2937] bg-[#1E1E1E] text-[#FFFFFF]">
             <motion.div
-                className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between"
+                className="mx-auto max-w-6xl px-4 py-0 flex items-center justify-between"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 1 }}

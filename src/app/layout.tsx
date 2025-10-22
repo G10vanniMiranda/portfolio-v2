@@ -59,8 +59,8 @@ export default function RootLayout({
       <body className={`${inter.variable} antialiased overflow-x-hidden`} >
         <ScrollProgress />
         <Header />
-        {/* Spacer to offset fixed header height */}
-        <div aria-hidden className="h-14" />
+        {/* Spacer to offset fixed header height (matches ~48px header) */}
+        <div aria-hidden className="h-10" />
         {children}
         <Footer />
         <WhatsFloatingButton />

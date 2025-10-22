@@ -35,7 +35,8 @@ export default function Home() {
     <main className="min-h-screen flex flex-col overflow-x-hidden">
 
       {/* Hero */}
-      <section id="hero" className="relative w-full bg-[#F9FAFB] text-[#111827] overflow-hidden">
+      <section id="hero" className="relative w-full bg-[#F9FAFB] text-[#111827] overflow-hidden pt-4">
+
         {/* Background video with poster fallback */}
         <div
           className="absolute inset-0 z-0 pointer-events-none bg-center bg-cover"
@@ -56,6 +57,7 @@ export default function Home() {
           {/* Light overlay for readability */}
           <div className="absolute inset-0 bg-white/20" />
         </div>
+
         <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pt-28 pb-16 md:pt-32 md:pb-24">
           <motion.div
             initial="hidden"
@@ -75,6 +77,7 @@ export default function Home() {
               loading="eager"
               sizes="(max-width: 768px) 144px, 192px"
             />
+
             <motion.h1
               className="text-3xl md:text-5xl font-semibold tracking-tight max-w-4xl mx-auto whitespace-normal break-words text-white"
               initial="hidden"
@@ -87,6 +90,7 @@ export default function Home() {
                 <motion.span key={idx} variants={letter}>{ch}</motion.span>
               ))}
             </motion.h1>
+
             <motion.p
               className="text-base md:text-lg text-white max-w-2xl"
               initial="hidden"
@@ -97,6 +101,7 @@ export default function Home() {
             >
               Crio sites, e-commerces e landing pages que transformam visitantes em clientes.
             </motion.p>
+
             <motion.a
               href="#projetos"
               className="inline-flex items-center rounded-md bg-[#3B82F6] px-6 py-3 text-white font-medium hover:bg-[#2563EB] transition-colors cta-pulse"
@@ -108,8 +113,10 @@ export default function Home() {
             >
               Ver meus projetos
             </motion.a>
+
           </motion.div>
         </div>
+
       </section>
 
       {/* Sobre mim */}
