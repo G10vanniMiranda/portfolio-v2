@@ -1,5 +1,9 @@
 "use client";
 
+// Componente: Header (navegação fixa)
+// - Exibe a logo, links de navegação e menu mobile (hambúrguer)
+// - Mantém-se fixo no topo com borda inferior e fundo sólido
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { appearUp, appear, slow } from "@/lib/motion";
@@ -17,12 +21,12 @@ export default function Header() {
                 variants={appearUp}
                 transition={slow}
             >
-                {/* Brand (Logo) */}
-                <a href="#sobre" className="flex items-center" aria-label="Início">
+                {/* Marca (Logo) — clica e navega até a seção 'Sobre' */}
+                <a href="/" className="flex items-center" aria-label="Início">
                     <Image src="/Mi7anda.png" alt="Logo" width={120} height={32} priority />
                 </a>
 
-                {/* Nav */}
+                {/* Navegação desktop */}
                 <nav className="hidden md:flex items-center gap-6 text-sm">
                     <a href="#sobre" className="hover:text-[#3B82F6] transition-colors">Sobre</a>
                     <a href="#tecnologias" className="hover:text-[#3B82F6] transition-colors">Tecnologias</a>
@@ -30,7 +34,7 @@ export default function Header() {
                     <a href="#contato" className="hover:text-[#3B82F6] transition-colors">Contato</a>
                 </nav>
 
-                {/* CTA */}
+                {/* Ações/CTA + botão de menu mobile */}
                 <div className="flex items-center gap-3">
                     <a href="#contato" className="hidden md:inline-flex items-center rounded-md bg-[#3B82F6] px-4 py-2 text-white font-medium hover:bg-[#2563EB] transition-colors cta-pulse">
                         Entrar em contato
@@ -43,6 +47,7 @@ export default function Header() {
                         aria-label="Abrir menu"
                     >
                         <span className="sr-only">Menu</span>
+                        {/* Ícone hambúrguer animado para estado aberto/fechado */}
                         <div className="space-y-1">
                             <span className={`block h-0.5 w-6 bg-[#3B82F6] transition ${open ? "translate-y-1.5 rotate-45" : ""}`}></span>
                             <span className={`block h-0.5 w-6 bg-[#3B82F6] transition ${open ? "opacity-0" : ""}`}></span>
@@ -52,7 +57,7 @@ export default function Header() {
                 </div>
             </motion.div>
 
-            {/* Mobile nav */}
+            {/* Navegação mobile (menu colapsável) */}
             <div className={`md:hidden border-t border-[#1F2937] overflow-hidden transition-[max-height] duration-300 ${open ? "max-h-96" : "max-h-0"}`} id="mobile-menu">
                 <motion.nav
                     className="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-3 text-sm"

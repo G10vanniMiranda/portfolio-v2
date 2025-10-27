@@ -1,5 +1,11 @@
 "use client";
 
+// Página inicial do portfólio
+// Observações:
+// - Mantém as seções originais (Hero, Sobre, Tecnologias, Projetos, Contato)
+// - Usa Framer Motion para animações sutis e acessíveis
+// - Imagens otimizadas com next/image e dicas de carregamento
+
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { appearUp, appear, lettersContainer, letter, slow, slowDelayed } from "@/lib/motion";
@@ -34,10 +40,10 @@ export default function Home() {
   return (
     <main className="min-h-screen flex flex-col overflow-x-hidden">
 
-      {/* Hero */}
+  {/* Seção: Hero (capa) */}
       <section id="hero" className="relative w-full bg-[#F9FAFB] text-[#111827] overflow-hidden pt-4">
 
-        {/* Background video with poster fallback */}
+  {/* Vídeo de fundo com poster de fallback (melhora LCP e legibilidade) */}
         <div
           className="absolute inset-0 z-0 pointer-events-none bg-center bg-cover"
           style={{ backgroundImage: "url(/videos/hero-poster.jpg)" }}
@@ -54,7 +60,7 @@ export default function Home() {
           >
             <source src="/videos/hero.mp4" type="video/mp4" />
           </video>
-          {/* Light overlay for readability */}
+          {/* Overlay claro para contraste do texto sobre o vídeo */}
           <div className="absolute inset-0 bg-white/20" />
         </div>
 
@@ -67,6 +73,7 @@ export default function Home() {
             variants={appearUp}
             className="flex flex-col items-center text-center gap-8"
           >
+            {/* Avatar do autor (imagem otimizada) */}
             <Image
               src="/perfil.png"
               alt="Foto profissional de Giovanni Miranda"
@@ -79,6 +86,7 @@ export default function Home() {
             />
 
             <motion.h1
+              // Headline principal com animação letra-a-letra
               className="text-3xl md:text-5xl font-semibold tracking-tight max-w-4xl mx-auto whitespace-normal break-words text-white"
               initial="hidden"
               whileInView="visible"
@@ -92,6 +100,7 @@ export default function Home() {
             </motion.h1>
 
             <motion.p
+              // Subtítulo com fade-in
               className="text-base md:text-lg text-white max-w-2xl"
               initial="hidden"
               whileInView="visible"
@@ -103,6 +112,7 @@ export default function Home() {
             </motion.p>
 
             <motion.a
+              // CTA para rolar até a seção de projetos
               href="#projetos"
               className="inline-flex items-center rounded-md bg-[#3B82F6] px-6 py-3 text-white font-medium hover:bg-[#2563EB] transition-colors cta-pulse"
               initial="hidden"
@@ -119,7 +129,7 @@ export default function Home() {
 
       </section>
 
-      {/* Sobre mim */}
+  {/* Seção: Sobre mim */}
       <section id="sobre" className="w-full bg-[#1E1E1E] text-white scroll-mt-24">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 md:py-24">
           <motion.div
@@ -130,7 +140,7 @@ export default function Home() {
             transition={slow}
             className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
           >
-            {/* Foto à esquerda (desktop) */}
+            {/* Coluna da foto (à esquerda no desktop) */}
             <div className="order-1 md:order-none flex justify-center md:justify-start">
               <Image
                 src="/sobre.jpeg"
@@ -138,11 +148,14 @@ export default function Home() {
                 width={320}
                 height={320}
                 className="rounded-2xl ring-1 ring-neutral-200 shadow-md object-cover w-64 h-64 md:w-80 md:h-80"
+                loading="lazy"
+                sizes="(max-width: 768px) 256px, 320px"
               />
             </div>
-            {/* Texto à direita */}
+            {/* Coluna do texto (à direita no desktop) */}
             <div className="space-y-4">
               <motion.h2
+                // Título da seção com animação letra-a-letra
                 className="text-2xl md:text-3xl font-semibold tracking-tight"
                 initial="hidden"
                 whileInView="visible"
@@ -155,6 +168,7 @@ export default function Home() {
                 ))}
               </motion.h2>
               <motion.p
+                // Parágrafos com entrada progressiva
                 className="text-white/80"
                 initial="hidden"
                 whileInView="visible"
@@ -171,6 +185,7 @@ export default function Home() {
                 viewport={{ once: true, amount: 0.5 }}
                 variants={appear}
                 transition={slowDelayed}
+                aria-label="Ir para a seção de projetos"
               >
                 Trabalho criando sites modernos, landing pages e e-commerces que unem design, estratégia e resultado.
               </motion.p>
@@ -190,10 +205,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Tecnologias */}
+  {/* Seção: Tecnologias utilizadas */}
       <section id="tecnologias" className="w-full bg-transparent text-white scroll-mt-24">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 md:py-24">
           <motion.h2
+            // Título da seção com animação letra-a-letra
             className="text-2xl md:text-3xl font-semibold tracking-tight mb-8"
             initial="hidden"
             whileInView="visible"
@@ -207,6 +223,7 @@ export default function Home() {
           </motion.h2>
 
           <motion.div
+            // Grid responsiva de tecnologias com efeito de levantar (appearUp)
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -249,12 +266,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projetos */}
+  {/* Seção: Projetos (lista dinâmica a partir de src/lib/projects.ts) */}
       <section id="projetos" className="w-full bg-transparent text-white scroll-mt-24">
 
         <div className="mx-auto w-full max-w-6xl px-4 py-14 md:py-24">
 
           <motion.h2
+            // Título da seção com animação letra-a-letra
             className="text-2xl md:text-3xl font-semibold tracking-tight mb-8"
             initial="hidden"
             whileInView="visible"
@@ -268,6 +286,7 @@ export default function Home() {
           </motion.h2>
 
           <motion.div
+            // Grid de cards de projetos (ProjectCard é carregado dinamicamente)
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -290,7 +309,7 @@ export default function Home() {
 
       </section>
 
-      {/* Contato */}
+  {/* Seção: Contato (CTA direto para WhatsApp) */}
       <section id="contato" className="w-full bg-[#1E1E1E] text-white scroll-mt-24">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 md:py-24">
           <motion.div
@@ -302,6 +321,7 @@ export default function Home() {
             className="max-w-3xl mx-auto text-center space-y-6"
           >
             <motion.h2
+              // Título da seção com animação letra-a-letra
               className="text-2xl md:text-3xl font-semibold tracking-tight"
               initial="hidden"
               whileInView="visible"
@@ -328,6 +348,7 @@ export default function Home() {
 
             <div className="flex justify-center items-center">
               <motion.a
+                // CTA para abrir conversa no WhatsApp
                 href="https://api.whatsapp.com/send?phone=5569999210459&text=Olá%20Giovanni!%20Vim%20pelo%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
                 target="_blank"
                 rel="noopener noreferrer"
@@ -337,6 +358,7 @@ export default function Home() {
                 viewport={{ once: true, amount: 0.6 }}
                 variants={appear}
                 transition={slowDelayed}
+                aria-label="Abrir conversa no WhatsApp"
               >
                 Falar no WhatsApp
               </motion.a>

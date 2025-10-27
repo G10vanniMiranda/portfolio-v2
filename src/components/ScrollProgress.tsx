@@ -1,10 +1,13 @@
 "use client";
+// Barra de progresso de rolagem no topo da página
+// - Calcula a porcentagem rolada do documento e atualiza a largura da barra
 import { useEffect, useState } from "react";
 
 export default function ScrollProgress() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    // Atualiza a progressão a cada scroll/resize
     function onScroll() {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;

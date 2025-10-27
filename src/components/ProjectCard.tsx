@@ -1,4 +1,7 @@
 "use client";
+// Card de Projeto
+// - Exibe thumbnail otimizada, título, descrição e link para o projeto
+// - Usa Framer Motion para animações na entrada e hover sutil na imagem
 type ProjectCardProps = {
   title: string;
   description: string;
@@ -8,10 +11,12 @@ type ProjectCardProps = {
 
 import { motion } from "framer-motion";
 import { appearUp, appear, slow, slowDelayed } from "@/lib/motion";
+import Image from "next/image";
 
 export default function ProjectCard({ title, description, imageSrc, href }: ProjectCardProps) {
   return (
     <motion.article
+      // Container do card com hover de sombra e borda
       className="group overflow-hidden rounded-lg border border-[#E5E7EB] bg-[#FFFFFF] shadow-sm transition hover:shadow-md hover:border-[#00C853]"
       initial="hidden"
       whileInView="visible"
@@ -20,13 +25,17 @@ export default function ProjectCard({ title, description, imageSrc, href }: Proj
       transition={slow}
     >
       <div className="relative aspect-video w-full overflow-hidden">
-        {/* Image as background for simple usage */}
-        <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
-          style={{ backgroundImage: `url(${imageSrc})` }}
+        {/* Thumbnail do projeto */}
+        <Image
+          src={imageSrc}
+          alt={`${title} thumbnail`}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          loading="lazy"
         />
-        {/* Dark overlay on hover */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
+        {/* Overlay escurecido no hover */}
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
       </div>
 
       <div className="p-4 md:p-5">
@@ -55,6 +64,7 @@ export default function ProjectCard({ title, description, imageSrc, href }: Proj
             href={href}
             target="_blank"
             rel="noopener noreferrer"
+            // CTA para ver o projeto
             className="inline-flex items-center rounded-md bg-[#3B82F6] px-4 py-2 text-white text-sm font-medium hover:bg-[#2563EB] transition-colors cta-pulse"
             initial="hidden"
             whileInView="visible"

@@ -1,4 +1,7 @@
 "use client";
+// Botão flutuante do WhatsApp
+// - Fica fixo no canto inferior direito
+// - Aplica animação de pulsar/pular respeitando prefers-reduced-motion
 import { FaWhatsapp } from "react-icons/fa";
 import { motion, useReducedMotion } from "framer-motion";
 import { appear } from "@/lib/motion";
@@ -12,6 +15,7 @@ export default function WhatsFloatingButton() {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
+            // Estilos de posição e acessibilidade
             className="fixed bottom-5 right-5 z-[70] inline-flex items-center justify-center w-14 h-14 rounded-full bg-green-500 text-black shadow-lg hover:bg-green-400 transition-colors"
             aria-label="Falar no WhatsApp"
             title="Falar no WhatsApp"
@@ -19,7 +23,7 @@ export default function WhatsFloatingButton() {
             whileInView="visible"
             viewport={{ once: true, amount: 1 }}
             variants={appear}
-            /* Transition for appear is handled by variants; looping animation sets its own transition */
+            /* A transição de aparecer é controlada por 'variants'; a animação em loop define sua própria transição. */
             {...(!prefersReduced
                 ? {
                         animate: { scale: [1, 1.08, 1], y: [0, -6, 0] },
