@@ -8,6 +8,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { appearUp, appear, slow } from "@/lib/motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Header() {
     const [open, setOpen] = useState<boolean>(false);
@@ -21,10 +22,10 @@ export default function Header() {
                 variants={appearUp}
                 transition={slow}
             >
-                {/* Marca (Logo) — clica e navega até a seção 'Sobre' */}
-                <a href="/" className="flex items-center" aria-label="Início">
+                {/* Marca (Logo) — usa Link para navegar à home */}
+                <Link href="/" className="flex items-center" aria-label="Início">
                     <Image src="/Mi7anda.png" alt="Logo" width={120} height={32} priority />
-                </a>
+                </Link>
 
                 {/* Navegação desktop */}
                 <nav className="hidden md:flex items-center gap-6 text-sm">

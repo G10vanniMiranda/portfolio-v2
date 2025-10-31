@@ -7,6 +7,12 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Hamburgueria",
+    description: "Projeto desenvolvido com foco em performance e conversão.",
+    imageSrc: "/burgue.jpg",
+    href: "https://hamburgueria-nine-chi.vercel.app/",
+  },
+  {
     title: "Advogado Iago Zalenda",
     description: "Projeto desenvolvido com foco em performance e conversão.",
     imageSrc: "/adv-iago.jpg",
