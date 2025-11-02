@@ -40,10 +40,10 @@ export default function Home() {
   return (
     <main className="min-h-screen flex flex-col overflow-x-hidden">
 
-  {/* Seção: Hero (capa) */}
+      {/* Seção: Hero (capa) */}
       <section id="hero" className="relative w-full bg-[#F9FAFB] text-[#111827] overflow-hidden pt-4">
 
-  {/* Vídeo de fundo com poster de fallback (melhora LCP e legibilidade) */}
+        {/* Vídeo de fundo com poster de fallback (melhora LCP e legibilidade) */}
         <div
           className="absolute inset-0 z-0 pointer-events-none bg-center bg-cover"
           style={{ backgroundImage: "url(/videos/hero-poster.jpg)" }}
@@ -129,7 +129,7 @@ export default function Home() {
 
       </section>
 
-  {/* Seção: Sobre mim */}
+      {/* Seção: Sobre mim */}
       <section id="sobre" className="w-full bg-[#1E1E1E] text-white scroll-mt-24">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 md:py-24">
           <motion.div
@@ -205,7 +205,7 @@ export default function Home() {
         </div>
       </section>
 
-  {/* Seção: Tecnologias utilizadas */}
+      {/* Seção: Tecnologias utilizadas */}
       <section id="tecnologias" className="w-full bg-transparent text-white scroll-mt-24">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 md:py-24">
           <motion.h2
@@ -266,7 +266,7 @@ export default function Home() {
         </div>
       </section>
 
-  {/* Seção: Projetos (lista dinâmica a partir de src/lib/projects.ts) */}
+      {/* Seção: Projetos (lista dinâmica a partir de src/lib/projects.ts) */}
       <section id="projetos" className="w-full bg-transparent text-white scroll-mt-24">
 
         <div className="mx-auto w-full max-w-6xl px-4 py-14 md:py-24">
@@ -309,7 +309,7 @@ export default function Home() {
 
       </section>
 
-  {/* Seção: Contato (CTA direto para WhatsApp) */}
+      {/* Seção: Contato (CTA direto para WhatsApp) */}
       <section id="contato" className="w-full bg-[#1E1E1E] text-white scroll-mt-24">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 md:py-24">
           <motion.div

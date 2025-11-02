@@ -6,6 +6,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import WhatsFloatingButton from "@/components/WhatsFloatingButton";
 import "./globals.css";
 import { siteUrl, defaultSEO } from "@/lib/seo";
+import { Analytics } from "@vercel/analytics/react";
 
 // Layout raiz (App Router)
 // - Define fontes, metadados dinâmicos e envolve todas as páginas
@@ -78,6 +79,8 @@ export default function RootLayout({
         <div aria-hidden className="h-10" />
         {children}
         <Footer />
+        {/* Vercel Analytics: coleta de page views e métricas de navegação */}
+        <Analytics />
         <WhatsFloatingButton />
       </body>
     </html>
