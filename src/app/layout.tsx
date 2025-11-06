@@ -7,6 +7,7 @@ import WhatsFloatingButton from "@/components/WhatsFloatingButton";
 import "./globals.css";
 import { siteUrl, defaultSEO } from "@/lib/seo";
 import { Analytics } from "@vercel/analytics/react";
+import { ThemeProvider } from "next-themes";
 
 // Layout raiz (App Router)
 // - Define fontes, metadados dinâmicos e envolve todas as páginas
@@ -71,21 +72,40 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="scroll-smooth overflow-x-hidden">
+    <html lang="pt-BR" suppressHydrationWarning className="scroll-smooth overflow-x-hidden">
       <head>
         {/* Preload do poster do vídeo do herói para melhorar LCP */}
         <link rel="preload" as="image" href="/videos/hero-poster.jpg" />
+        {/* JSON-LD: dados estruturados básicos de Pessoa */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Giovanni de Sousa Miranda",
+              jobTitle: "Desenvolvedor Full Stack",
+              url: siteUrl,
+              sameAs: [
+                "https://github.com/G10vanniMiranda",
+                "https://www.linkedin.com/in/giovannimiranda"
+              ]
+            }),
+          }}
+        />
       </head>
-      <body className={`${inter.variable} antialiased overflow-x-hidden`} >
-        <ScrollProgress />
-        <Header />
-        {/* Espaçador para compensar o header fixo (altura ~48px) */}
-        <div aria-hidden className="h-10" />
-        {children}
-        <Footer />
-        {/* Vercel Analytics: coleta de page views e métricas de navegação */}
-        <Analytics />
-        <WhatsFloatingButton />
+      <body className={`${inter.variable} antialiased overflow-x-hidden`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <ScrollProgress />
+          <Header />
+          {/* Espaçador para compensar o header fixo (altura ~48px) */}
+          <div aria-hidden className="h-10" />
+          {children}
+          <Footer />
+          {/* Vercel Analytics: coleta de page views e métricas de navegação */}
+          <Analytics />
+          <WhatsFloatingButton />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,9 +1,10 @@
 "use client";
 // Seção: Contato com CTA para WhatsApp
 import { motion } from "framer-motion";
+import type { FC } from "react";
 import { appearUp, lettersContainer, letter, appear, slow, slowDelayed } from "@/lib/motion";
 
-export default function Contact() {
+const Contact: FC = () => {
   return (
     <section id="contato" className="w-full bg-[#1E1E1E] text-white scroll-mt-24">
       <div className="mx-auto w-full max-w-6xl px-4 py-14 md:py-24">
@@ -60,4 +61,6 @@ export default function Contact() {
       </div>
     </section>
   );
-}
+};
+
+export default Contact;

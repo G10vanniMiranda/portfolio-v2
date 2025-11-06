@@ -1,24 +1,14 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const current = (resolvedTheme ?? theme) as "light" | "dark" | undefined;
 
-  useEffect(() => {
-    const root = document.documentElement;
-    const stored = localStorage.getItem("theme") as "light" | "dark" | null;
-    const initial = stored ?? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-    setTheme(initial);
-    root.classList.toggle("dark", initial === "dark");
-  }, []);
-
-  function toggle() {
-    const next = theme === "dark" ? "light" : "dark";
+  const toggle = () => {
+    const next = current === "dark" ? "light" : "dark";
     setTheme(next);
-    const root = document.documentElement;
-    root.classList.toggle("dark", next === "dark");
-    localStorage.setItem("theme", next);
-  }
+  };
 
   return (
     <button
@@ -27,7 +17,7 @@ export default function ThemeToggle() {
       aria-label="Alternar tema"
       title="Alternar tema"
     >
-      {theme === "dark" ? "Light" : "Dark"}
+      {current === "dark" ? "Light" : "Dark"}
     </button>
   );
 }

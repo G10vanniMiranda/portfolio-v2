@@ -1,10 +1,11 @@
 "use client";
 // Seção: Sobre mim
 import Image from "next/image";
+import type { FC } from "react";
 import { motion } from "framer-motion";
 import { appearUp, appear, lettersContainer, letter, slow, slowDelayed } from "@/lib/motion";
 
-export default function About() {
+const About: FC = () => {
   return (
     <section id="sobre" className="w-full bg-[#1E1E1E] text-white scroll-mt-24">
       <div className="mx-auto w-full max-w-6xl px-4 py-14 md:py-24">
@@ -78,4 +79,6 @@ export default function About() {
       </div>
     </section>
   );
-}
+};
+
+export default About;

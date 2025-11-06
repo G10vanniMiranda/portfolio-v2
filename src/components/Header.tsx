@@ -7,11 +7,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { appearUp, appear, slow } from "@/lib/motion";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Header() {
     const [open, setOpen] = useState<boolean>(false);
+    const handleAnchorClick = useSmoothScroll();
     return (
         <header className="fixed top-0 left-0 right-0 z-50 w-full border-b border-[#1F2937] bg-[#1E1E1E] text-[#FFFFFF]">
             <motion.div
@@ -29,16 +31,17 @@ export default function Header() {
 
                 {/* Navegação desktop */}
                 <nav className="hidden md:flex items-center gap-6 text-sm">
-                    <a href="#sobre" className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors">Sobre</a>
-                    <a href="#tecnologias" className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors">Tecnologias</a>
-                    <a href="#projetos" className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors">Projetos</a>
-                    <a href="#contato" className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors">Contato</a>
+                    <a href="#sobre" onClick={handleAnchorClick} className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors">Sobre</a>
+                    <a href="#tecnologias" onClick={handleAnchorClick} className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors">Tecnologias</a>
+                    <a href="#projetos" onClick={handleAnchorClick} className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors">Projetos</a>
+                    <a href="#contato" onClick={handleAnchorClick} className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors">Contato</a>
                 </nav>
 
                 {/* Ações/CTA + botão de menu mobile */}
                 <div className="flex items-center gap-3">
                     <motion.a
                         href="#contato"
+                        onClick={handleAnchorClick}
                         className="hidden md:inline-flex items-center rounded-md bg-[#3B82F6] px-4 py-2 text-white font-medium hover:bg-[#2563EB] transition-all cta-pulse focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
                         aria-label="Entrar em contato"
                         whileHover={{ scale: 1.03 }}
@@ -73,14 +76,14 @@ export default function Header() {
                     variants={appear}
                     transition={slow}
                 >
-                    <a href="#sobre" className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors" onClick={() => setOpen(false)}>Sobre</a>
-                    <a href="#tecnologias" className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors" onClick={() => setOpen(false)}>Tecnologias</a>
-                    <a href="#projetos" className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors" onClick={() => setOpen(false)}>Projetos</a>
-                    <a href="#contato" className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors" onClick={() => setOpen(false)}>Contato</a>
+                    <a href="#sobre" className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleAnchorClick(e); setOpen(false); }}>Sobre</a>
+                    <a href="#tecnologias" className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleAnchorClick(e); setOpen(false); }}>Tecnologias</a>
+                    <a href="#projetos" className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleAnchorClick(e); setOpen(false); }}>Projetos</a>
+                    <a href="#contato" className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleAnchorClick(e); setOpen(false); }}>Contato</a>
                     <motion.a
                         href="#contato"
+                        onClick={(e: React.MouseEvent<HTMLAnchorElement>) => { handleAnchorClick(e); setOpen(false); }}
                         className="mt-2 inline-flex items-center justify-center rounded-md bg-[#3B82F6] px-4 py-2 text-white font-medium hover:bg-[#2563EB] transition-all cta-pulse focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
-                        onClick={() => setOpen(false)}
                         aria-label="Entrar em contato"
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.98 }}

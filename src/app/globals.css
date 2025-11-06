@@ -6,6 +6,9 @@ body{
   overflow-x: hidden; /* evita scroll horizontal */
 }
 
+/* Rolagem suave global para âncoras (#) */
+html { scroll-behavior: smooth; }
+
 /* Acessibilidade: foco visível apenas para teclado */
 :where(a, button, [role="button"]) {
   outline: none;

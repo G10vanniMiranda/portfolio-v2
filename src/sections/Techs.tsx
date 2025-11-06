@@ -1,6 +1,7 @@
 "use client";
 // Seção: Tecnologias
 import { motion } from "framer-motion";
+import type { FC } from "react";
 import { appearUp, lettersContainer, letter, slow } from "@/lib/motion";
 import { slow as slowAlt } from "@/lib/motion";
 import { FaSearch, FaCloud } from "react-icons/fa";
@@ -21,7 +22,7 @@ import {
   SiFirebase,
 } from "react-icons/si";
 
-export default function Techs() {
+const Techs: FC = () => {
   const items = [
     { name: "HTML", Icon: SiHtml5 },
     { name: "CSS", Icon: SiCss3 },
@@ -83,4 +84,6 @@ export default function Techs() {
       </div>
     </section>
   );
-}
+};
+
+export default Techs;

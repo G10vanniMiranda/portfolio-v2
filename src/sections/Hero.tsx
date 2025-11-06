@@ -1,10 +1,11 @@
 "use client";
 // Seção: Hero (capa) com vídeo de fundo e CTA
 import Image from "next/image";
+import type { FC } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { appearUp, appear, lettersContainer, letter, slow, slowDelayed } from "@/lib/motion";
 
-export default function Hero() {
+const Hero: FC = () => {
   const prefersReduced = useReducedMotion();
   return (
     <section id="hero" className="relative w-full bg-[#F9FAFB] text-[#111827] overflow-hidden pt-4">
@@ -95,4 +96,6 @@ export default function Hero() {
       </div>
     </section>
   );
-}
+};
+
+export default Hero;

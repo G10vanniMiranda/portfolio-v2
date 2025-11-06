@@ -12,8 +12,9 @@ type ProjectCardProps = {
 import { motion } from "framer-motion";
 import { appearUp, appear, slow, slowDelayed } from "@/lib/motion";
 import Image from "next/image";
+import type { FC } from "react";
 
-export default function ProjectCard({ title, description, imageSrc, href }: ProjectCardProps) {
+const ProjectCard: FC<ProjectCardProps> = ({ title, description, imageSrc, href }) => {
   return (
     <motion.article
       // Container do card com hover de sombra e borda
@@ -81,4 +82,6 @@ export default function ProjectCard({ title, description, imageSrc, href }: Proj
       </div>
     </motion.article>
   );
-}
+};
+
+export default ProjectCard;
