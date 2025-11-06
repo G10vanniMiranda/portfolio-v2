@@ -72,6 +72,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="scroll-smooth overflow-x-hidden">
+      <head>
+        {/* Preload do poster do vídeo do herói para melhorar LCP */}
+        <link rel="preload" as="image" href="/videos/hero-poster.jpg" />
+      </head>
       <body className={`${inter.variable} antialiased overflow-x-hidden`} >
         <ScrollProgress />
         <Header />

@@ -65,12 +65,15 @@ export default function ProjectCard({ title, description, imageSrc, href }: Proj
             target="_blank"
             rel="noopener noreferrer"
             // CTA para ver o projeto
-            className="inline-flex items-center rounded-md bg-[#3B82F6] px-4 py-2 text-white text-sm font-medium hover:bg-[#2563EB] transition-colors cta-pulse"
+            aria-label={`Ver projeto: ${title}`}
+            className="inline-flex items-center rounded-md bg-[#3B82F6] px-4 py-2 text-white text-sm font-medium hover:bg-[#2563EB] transition-all cta-pulse focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.6 }}
             variants={appear}
             transition={slowDelayed}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
           >
             Ver projeto
           </motion.a>

@@ -24,22 +24,28 @@ export default function Header() {
             >
                 {/* Marca (Logo) — usa Link para navegar à home */}
                 <Link href="/" className="flex items-center" aria-label="Início">
-                    <Image src="/Mi7anda.png" alt="Logo" width={120} height={32} priority />
+                    <Image src="/Mi7anda.png" alt="Logo Giovanni Miranda" width={120} height={32} />
                 </Link>
 
                 {/* Navegação desktop */}
                 <nav className="hidden md:flex items-center gap-6 text-sm">
-                    <a href="#sobre" className="hover:text-[#3B82F6] transition-colors">Sobre</a>
-                    <a href="#tecnologias" className="hover:text-[#3B82F6] transition-colors">Tecnologias</a>
-                    <a href="#projetos" className="hover:text-[#3B82F6] transition-colors">Projetos</a>
-                    <a href="#contato" className="hover:text-[#3B82F6] transition-colors">Contato</a>
+                    <a href="#sobre" className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors">Sobre</a>
+                    <a href="#tecnologias" className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors">Tecnologias</a>
+                    <a href="#projetos" className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors">Projetos</a>
+                    <a href="#contato" className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors">Contato</a>
                 </nav>
 
                 {/* Ações/CTA + botão de menu mobile */}
                 <div className="flex items-center gap-3">
-                    <a href="#contato" className="hidden md:inline-flex items-center rounded-md bg-[#3B82F6] px-4 py-2 text-white font-medium hover:bg-[#2563EB] transition-colors cta-pulse">
+                    <motion.a
+                        href="#contato"
+                        className="hidden md:inline-flex items-center rounded-md bg-[#3B82F6] px-4 py-2 text-white font-medium hover:bg-[#2563EB] transition-all cta-pulse focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                        aria-label="Entrar em contato"
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.98 }}
+                    >
                         Entrar em contato
-                    </a>
+                    </motion.a>
                     <button
                         className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md border border-white/10 hover:bg-[#3B82F6]/10 transition"
                         onClick={() => setOpen((v: boolean) => !v)}
@@ -67,13 +73,20 @@ export default function Header() {
                     variants={appear}
                     transition={slow}
                 >
-                    <a href="#sobre" className="hover:text-[#3B82F6] transition-colors" onClick={() => setOpen(false)}>Sobre</a>
-                    <a href="#tecnologias" className="hover:text-[#3B82F6] transition-colors" onClick={() => setOpen(false)}>Tecnologias</a>
-                    <a href="#projetos" className="hover:text-[#3B82F6] transition-colors" onClick={() => setOpen(false)}>Projetos</a>
-                    <a href="#contato" className="hover:text-[#3B82F6] transition-colors" onClick={() => setOpen(false)}>Contato</a>
-                    <a href="#contato" className="mt-2 inline-flex items-center justify-center rounded-md bg-[#3B82F6] px-4 py-2 text-white font-medium hover:bg-[#2563EB] transition-colors cta-pulse" onClick={() => setOpen(false)}>
+                    <a href="#sobre" className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors" onClick={() => setOpen(false)}>Sobre</a>
+                    <a href="#tecnologias" className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors" onClick={() => setOpen(false)}>Tecnologias</a>
+                    <a href="#projetos" className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors" onClick={() => setOpen(false)}>Projetos</a>
+                    <a href="#contato" className="hover:text-white/90 focus:outline-none focus-visible:underline transition-colors" onClick={() => setOpen(false)}>Contato</a>
+                    <motion.a
+                        href="#contato"
+                        className="mt-2 inline-flex items-center justify-center rounded-md bg-[#3B82F6] px-4 py-2 text-white font-medium hover:bg-[#2563EB] transition-all cta-pulse focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+                        onClick={() => setOpen(false)}
+                        aria-label="Entrar em contato"
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.98 }}
+                    >
                         Entrar em contato
-                    </a>
+                    </motion.a>
                 </motion.nav>
             </div>
         </header>
